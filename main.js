@@ -50,6 +50,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+var image;
 // variables used to get mouse position on the canvas
 var $canvas = $("#canvas");
 var canvasOffset = $canvas.offset();
@@ -92,13 +93,26 @@ var selectedText = -1;
 
 // START: draw all texts to the canvas
 draw();
+canvas.width = 500;
 
 // clear the canvas draw all texts
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if(image != null){
+      console.log("image not null")
+      if(image.height > 200){
+        canvas.height = image.height *.25
+        canvas.width = image.width *.25
+      }else{
+        canvas.width = image.width;
+        canvas.height = iamge.height;
+      }
+      ctx.drawImage(image,0,0);
+    }
     for (var i = 0; i < texts.length; i++) {
         var text = texts[i];
         ctx.fillText(text.text, text.x, text.y);
+        console.log("loop")
     }
 }
 
@@ -160,6 +174,61 @@ function handleMouseMove(e) {
     text.y += dy;
     draw();
 }
+function changeText1(){
+  var newtext1 = document.getElementById("text1").value
+  var oldx = texts[0].x
+  var oldy = texts[0].y
+  texts[0] = {
+    text: newtext1,
+    x: oldx,
+    y: oldy
+  }
+  texts[0].width = ctx.measureText(text.text).width;
+  texts[0].height = 16;
+  draw();
+}
+
+function changeText2(){
+  var newtext2 = document.getElementById("text2").value
+  var oldx = texts[1].x
+  var oldy = texts[1].y
+  texts[1] = {
+    text: newtext2,
+    x: oldx,
+    y: oldy
+  }
+  texts[1].width = ctx.measureText(text.text).width;
+  texts[1].height = 16;
+  draw();
+}
+
+function handleImage(e){
+  var reader = new FileReader();
+  reader.onload = function(event){
+    var img = new Image();
+    img.onload = function(){
+        console.log("image load")
+
+            // set size proportional to image
+
+            // step 1 - resize to 50%
+        if(img.height > 200){
+          canvas.height = img.height *.25
+          canvas.width = img.width *.25
+        }else{
+          canvas.width = img.width;
+          canvas.height = img.height;
+        }
+        
+        ctx.drawImage(img,0,0);
+        image = img
+      }
+      img.src = event.target.result;
+    }
+  reader.readAsDataURL(e.target.files[0]);     
+  draw();
+  }
+
 
 // listen for mouse events
 $("#canvas").mousedown(function (e) {

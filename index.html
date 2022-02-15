@@ -22,10 +22,34 @@
         <input type="text" id="text">
         <button onClick="changeText();">submit</button>
         <script src="main.js"> </script> -->
-        <h4>Drag the texts</h4>
+    <div id="header">
+        <ul id="bar">
+            <li id="baritem">home</li>
+            <li id="baritem">make meme</li>
+            <li id="baritem">my account</li>
+        </ul>
+    </div>
+    <div id="contain">
+        <div id="item">
+            <h4>Drag the texts</h4>
 
-        <canvas id="canvas" width=500 height=500></canvas>
-        <script src="main.js"> </script>
-    </body>
+            <canvas id="canvas" width=500 height=></canvas>
+            <script src="main.js"> </script>
+        </div>
+        <div class="item">
+            <h4>edit text</h4>
+            <input type="text" name="text1" id="text1">
+            <button onclick="changeText1();">submit text 1</button>
+            <br>
+            <br>
+            <input type="text" name="text2" id="text2">
+            <button onclick="changeText2();"">submit text 2</button>
+            <br>
+            <br>
+            <p>upload files</p>
+            <input type="file" id="imageLoader" onchange="handleImage(event)">
+        </div>
+    </div>
+</body>
 </html>
           

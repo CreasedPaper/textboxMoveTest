@@ -19,3 +19,28 @@
 #canvas {
     border:1px solid red;
 }
+#contain {
+  display: flex;
+  justify-content: flex-start;
+}
+#item{
+  flex-basis: auto;
+}
+#header{
+  background-color: blueviolet;
+  padding: 5px;
+  border-radius: 25px;
+}
+#bar{
+  display: block;
+  list-style-type: none;
+}
+#baritem{
+  display: inline;
+  background-color: blueviolet;
+  padding: 9px;
+  border-radius: 15px;
+}
+#baritem:hover{
+  background-color:rgb(147, 81, 209) ;
+}
