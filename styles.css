@@ -1,3 +1,15 @@
-#container { width: 300px; height: 300px; }
-#container h3 { text-align: center; margin: 0; margin-bottom: 10px; }
-#resizable, #container { padding: 0.5em; }
+#mydiv {
+    position: absolute;
+    z-index: 9;
+    background-color: #a03636;
+    text-align: center;
+    border: 1px solid #c04c4c;
+  }
+  
+  #mydivheader {
+    padding: 1px;
+    cursor: move;
+    z-index: 10;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+  }
