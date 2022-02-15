@@ -1,4 +1,4 @@
-#mydiv {
+/* #mydiv {
     position: absolute;
     z-index: 9;
     background-color: #a03636;
@@ -12,4 +12,10 @@
     z-index: 10;
     background-color: #ffffff;
     color: rgb(0, 0, 0);
-  }
+  } */
+  body {
+    background-color: ivory;
+}
+#canvas {
+    border:1px solid red;
+}
